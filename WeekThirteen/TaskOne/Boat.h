@@ -11,6 +11,8 @@ public:
 	Boat(const Boat& other);
 	~Boat();
 
+	Boat& operator=(const Boat& other);
+
 	const char* getBrand() const;
 	const char* getModel() const;
 	unsigned getWaterDisplacement() const;

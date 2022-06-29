@@ -19,6 +19,8 @@ public:
 	Car(const Car& other);
 	~Car();
 
+	Car& operator= (const Car& other);
+
 	const char* getBrand() const;
 	const char* getModel() const;
 	CarType getType() const;

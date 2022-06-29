@@ -26,6 +26,22 @@ Car::~Car()
     delete[] m_Model;
 }
 
+Car& Car::operator=(const Car& other)
+{
+    if (this != &other)
+    {
+        delete[] m_Brand;
+        delete[] m_Model;
+
+        this->Vehicle::operator=(other);
+        m_Type = other.m_Type;
+        m_Brand = strcpy(new char[strlen(other.m_Brand) + 1], other.m_Brand);
+        m_Model = strcpy(new char[strlen(other.m_Model) + 1], other.m_Model);
+    }
+
+    return *this;
+}
+
 const char* Car::getBrand() const
 {
     return m_Brand;

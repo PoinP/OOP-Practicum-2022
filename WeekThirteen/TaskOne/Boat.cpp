@@ -25,6 +25,22 @@ Boat::~Boat()
     delete[] m_Model;
 }
 
+Boat& Boat::operator=(const Boat& other)
+{
+    if (this != &other)
+    {
+        delete[] m_Brand;
+        delete[] m_Model;
+
+        this->Vehicle::operator=(other);
+        m_WaterDispl = other.m_WaterDispl;
+        m_Brand = strcpy(new char[strlen(other.m_Brand) + 1], other.m_Brand);
+        m_Model = strcpy(new char[strlen(other.m_Model) + 1], other.m_Model);
+    }
+
+    return *this;
+}
+
 const char* Boat::getBrand() const
 {
     return m_Brand;
